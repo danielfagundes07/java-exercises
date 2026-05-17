@@ -15,29 +15,20 @@ public class StudentManager {
         }
     }
     public void findStudent(String name){
-        boolean isFound = false;
         for (Student s : students){
             if (s.getName().equalsIgnoreCase(name)){
-                isFound = true;
                 System.out.println("Student Found: " + name);
             }
         }
-        if (isFound = false){
-            System.out.println("No student with such name.");
-        }
     }
     public void removeStudent(String name){
-        boolean isRemoved = false;
         for (Student s : students){
             if (s.getName().equalsIgnoreCase(name)){
-                isRemoved = true;
                 System.out.printf("Student [%s] removed.", s.getName());
                 students.remove(s);
             }
         }
-        if (isRemoved = false){
-            System.out.println("No student with such name.");
-        }
+        
     }
     public double getAverage(){
         Double sum = 0.0;
