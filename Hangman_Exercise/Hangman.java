@@ -6,7 +6,7 @@
 //Program must be interactive
 //Program must quit if user imput = 'Q'
 
-package exercises;
+package exercises.Hangman_Exercise;
 
 import java.io.*;
 import java.util.*;
