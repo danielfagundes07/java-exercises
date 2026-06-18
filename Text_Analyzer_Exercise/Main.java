@@ -16,7 +16,6 @@ Output summary report
 6) Show a simple, yet intuitive Summary of all data listed.
 */
 
-
 // Main.java
 package exercises.Text_Analyzer_Exercise;
 
@@ -28,7 +27,8 @@ public class Main {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Please type your current file path (or Q to quit): ");
             String filePath = scanner.nextLine();
-            if (filePath.equalsIgnoreCase("Q")) return;
+            if (filePath.equalsIgnoreCase("Q"))
+                return;
 
             String fileContent = FileLoader.readFile(filePath);
             TextAnalyzer analyzer = new TextAnalyzer(fileContent);
@@ -43,7 +43,7 @@ public class Main {
                         5 - Quit
                         """);
                 int choice = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1 -> analyzer.wordCounter();
