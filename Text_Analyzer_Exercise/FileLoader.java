@@ -1,5 +1,5 @@
 // FileLoader.java
-package exercises.Text_Analyzer_Exercise;
+package Text_Analyzer_Exercise;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,4 +16,3 @@ public class FileLoader {
         return content.toString();
     }
 }
-

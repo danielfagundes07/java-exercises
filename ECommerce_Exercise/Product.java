@@ -1,6 +1,6 @@
 //1) Create product class (name, price, stock) w/ reduceStock method & toString method
 
-package exercises.ECommerce_Exercise;
+package ECommerce_Exercise;
 
 public class Product {
 

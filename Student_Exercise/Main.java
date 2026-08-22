@@ -1,5 +1,5 @@
 
-package exercises.Student_Exercise;
+package Student_Exercise;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int choice;
 
-        do{
+        do {
             System.out.println("\n1. Add student");
             System.out.println("\n2. Remove Student");
             System.out.println("\n3. Find Student");
@@ -20,21 +20,21 @@ public class Main {
             choice = sc.nextInt();
             sc.nextLine();
 
-            switch (choice){
+            switch (choice) {
                 case 1:
-                    
+
                     System.out.println("Name: ");
                     String name = sc.nextLine();
                     System.out.println("Age: ");
                     int age = sc.nextInt();
                     double grade;
-                    do{
+                    do {
                         System.out.println("Grade: ");
-                         grade = sc.nextDouble();
-                        if (grade < 1 || grade > 10 ){
+                        grade = sc.nextDouble();
+                        if (grade < 1 || grade > 10) {
                             System.out.println("Invalid Grade.");
                         }
-                    }while (grade < 1 || grade > 10);
+                    } while (grade < 1 || grade > 10);
                     manager.addStudent(new Student(name, age, grade));
                     break;
                 case 2:
@@ -43,10 +43,10 @@ public class Main {
                     manager.removeStudent(RemoveStudent);
                     break;
                 case 3:
-                     System.out.println("Name: ");
-                     String FindStudent = sc.nextLine();
-                     manager.findStudent(FindStudent);
-                     break;
+                    System.out.println("Name: ");
+                    String FindStudent = sc.nextLine();
+                    manager.findStudent(FindStudent);
+                    break;
                 case 4:
                     manager.listAllStudents();
                     break;
@@ -57,7 +57,7 @@ public class Main {
                     System.out.println("Lowest Grade: " + manager.getLowestGrade());
                     break;
             }
-        }while (choice != 6);
+        } while (choice != 6);
         sc.close();
     }
 }

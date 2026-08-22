@@ -1,4 +1,4 @@
-package exercises.ECommerce_Exercise;
+package ECommerce_Exercise;
 
 public interface Taxable {
     public double calculateTax();

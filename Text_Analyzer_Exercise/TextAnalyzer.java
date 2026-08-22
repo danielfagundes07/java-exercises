@@ -1,5 +1,5 @@
 // TextAnalyzer.java
-package exercises.Text_Analyzer_Exercise;
+package Text_Analyzer_Exercise;
 
 import java.util.HashMap;
 import java.util.Map;

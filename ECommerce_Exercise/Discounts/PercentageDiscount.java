@@ -1,4 +1,4 @@
-package exercises.ECommerce_Exercise.Discounts;
+package ECommerce_Exercise.Discounts;
 
 public class PercentageDiscount extends Discount {
 

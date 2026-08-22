@@ -1,5 +1,5 @@
 
-package exercises.ECommerce_Exercise;
+package ECommerce_Exercise.Orders;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,8 @@ public class OrderManager {
 
     public void listAllOrders() {
         for (Order o : orders) {
-            System.out.print(o.items.keySet() + ", ");
+            System.out.print("Order Status: " + o.getStatus() + " | Items: " + o.items.keySet() + ", ");
         }
     }
+
 }

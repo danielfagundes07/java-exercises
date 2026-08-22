@@ -17,7 +17,7 @@ Output summary report
 */
 
 // Main.java
-package exercises.Text_Analyzer_Exercise;
+package Text_Analyzer_Exercise;
 
 import java.io.IOException;
 import java.util.Scanner;

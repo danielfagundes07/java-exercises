@@ -1,8 +1,11 @@
-package exercises.ECommerce_Exercise;
+package ECommerce_Exercise.Orders;
 
 import java.util.HashMap;
 
-import exercises.ECommerce_Exercise.Discounts.Discount;
+import ECommerce_Exercise.Product;
+import ECommerce_Exercise.Taxable;
+import ECommerce_Exercise.Discounts.Discount;
+import ECommerce_Exercise.Shipping.ShippingEstimate;
 
 public class Order implements Taxable {
     private Discount discount;
@@ -13,6 +16,7 @@ public class Order implements Taxable {
         for (Product p : items.keySet()) {
             subtotal += p.getPrice() * items.get(p);
         }
+
         return subtotal;
     }
 
@@ -32,6 +36,7 @@ public class Order implements Taxable {
         if (p.getStock() >= quantity) {
             items.put(p, quantity);
             p.reduceStock(quantity);
+
         } else {
             System.out.println("Not enough stock for " + p.getName());
         }
@@ -45,11 +50,30 @@ public class Order implements Taxable {
         this.discount = discount;
     }
 
+    private OrderStatus status = OrderStatus.PENDING;
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
+    private ShippingEstimate shipping;
+
+    public Order(String customerAddress) {
+        this.shipping = new ShippingEstimate(customerAddress);
+        this.status = OrderStatus.PENDING;
+    }
+
     @Override
     public String toString() {
-        return "Subtotal: USD$" + getSubtotal() +
-                "\nTax: USD$" + calculateTax() +
-                "\nTotal: USD$" + getTotal();
+        return shipping.toString()
+                + "\nStatus: " + status
+                + "\nSubtotal: USD$" + String.format("%.2f", getSubtotal())
+                + "\nTax: USD$" + String.format("%.2f", calculateTax())
+                + "\nTotal: USD$" + String.format("%.2f", getTotal());
     }
 
 }

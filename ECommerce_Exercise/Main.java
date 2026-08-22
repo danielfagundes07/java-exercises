@@ -1,12 +1,15 @@
 
-package exercises.ECommerce_Exercise;
+package ECommerce_Exercise;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import exercises.ECommerce_Exercise.Discounts.FixedDiscount;
-import exercises.ECommerce_Exercise.Discounts.NoDiscount;
-import exercises.ECommerce_Exercise.Discounts.PercentageDiscount;
+import ECommerce_Exercise.Discounts.FixedDiscount;
+import ECommerce_Exercise.Discounts.NoDiscount;
+import ECommerce_Exercise.Discounts.PercentageDiscount;
+import ECommerce_Exercise.Orders.Order;
+import ECommerce_Exercise.Orders.OrderManager;
+import ECommerce_Exercise.Orders.OrderStatus;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,7 +28,8 @@ public class Main {
                         + "     4. Finalize order\n"
                         + "     5. View all orders\n"
                         + "     6. View total revenue\n"
-                        + "     7. Exit\n"
+                        + "     7. Update order status\n"
+                        + "     8. Exit\n"
                         + "     Type your choice: ";
 
                 System.out.print(menu);
@@ -33,17 +37,19 @@ public class Main {
                 int option = scanner.nextInt();
                 scanner.nextLine();
 
-                if (option == 7) {
+                if (option == 8) {
                     System.out.println("Exiting Program...");
                     exit = true;
-                } else if (option < 1 || option > 7) {
+                } else if (option < 1 || option > 8) {
                     System.out.println("Please type a valid option.");
                     continue;
                 }
 
                 switch (option) {
                     case 1:
-                        currentOrder = new Order();
+                        System.out.println("Enter customer address:");
+                        String address = scanner.nextLine();
+                        currentOrder = new Order(address);
                         System.out.println("New Order Created successfully!");
                         break;
                     case 2:
@@ -95,6 +101,7 @@ public class Main {
                         if (currentOrder.getDiscount() == null) {
                             currentOrder.setDiscount(new NoDiscount());
                         }
+                        currentOrder.setStatus(OrderStatus.PAID);
                         manager.addOrder(currentOrder);
                         System.out.println("Order finalized!");
                         System.out.println(currentOrder);
@@ -106,6 +113,13 @@ public class Main {
                     case 6:
                         System.out.println("Total Revenue USD$" + manager.getTotalRevenue());
                         break;
+                    case 7:
+                        if (currentOrder == null) {
+                            System.out.println("Create an order first!");
+                            break;
+                        }
+                        System.out.println("Choose new status: ");
+                        System.out.println();
                 }
             }
         } catch (InputMismatchException e) {
